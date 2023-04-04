@@ -1,0 +1,8 @@
+%p{:style => "color: green"}= notice
+%h1 Arts
+#arts
+  - @arts.each do |art|
+    = render art
+    %p
+      = link_to "Show this art", art
+= link_to "New art", new_art_path

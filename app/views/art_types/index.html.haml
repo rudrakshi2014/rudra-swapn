@@ -1,0 +1,23 @@
+%h1 Listing art_types
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th
+      %th
+      %th
+
+  %tbody
+    - @art_types.each do |art_type|
+      %tr
+        %td= art_type.name
+        %td= art_type.description
+        %td= link_to 'Show', art_type
+        %td= link_to 'Edit', edit_art_type_path(art_type)
+        %td= link_to 'Destroy', art_type, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Art type', new_art_type_path

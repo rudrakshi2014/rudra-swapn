@@ -1,0 +1,20 @@
+= form_with(model: art) do |form|
+  - if art.errors.any?
+    %div{:style => "color: red"}
+      %h2
+        = pluralize(art.errors.count, "error")
+        prohibited this art from being saved:
+      %ul
+        - art.errors.each do |error|
+          %li= error.full_message
+  %div
+    = form.label :name, style: "display: block"
+    = form.text_field :name
+  %div
+    = form.label :art_type_id, style: "display: block"
+    = form.select :art_type_id, ArtType.all.map {|at| [at.name, at.id]}
+  %div
+    = form.label :description, style: "display: block"
+    = form.text_area :description
+  %div
+    = form.submit

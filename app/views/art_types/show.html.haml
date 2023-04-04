@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @art_type.name
+%p
+  %b Description:
+  = @art_type.description
+
+= link_to 'Edit', edit_art_type_path(@art_type)
+\|
+= link_to 'Back', art_types_path
